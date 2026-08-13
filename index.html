@@ -1,107 +1,235 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Your Name — Developer / Designer</title>
-    <meta name="description" content="Personal site of Your Name — developer, designer, tinkerer." />
-    <meta name="theme-color" content="#0b1220" />
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的名字 · 个人主页</title>
+    
+    <!-- 使用系统字体，保证在不同设备上阅读体验最佳 -->
+    <style>
+        /* ---------- 全局重置 & 排版 ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- social meta -->
-    <meta property="og:title" content="Your Name — Developer / Designer" />
-    <meta property="og:description" content="Personal site of Your Name — developer, designer, tinkerer." />
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: #fafafa; /* 柔和的浅灰底 */
+            color: #1e1e1e;
+            line-height: 1.8;
+            padding: 2rem 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
 
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+        .container {
+            max-width: 720px;  /* 阅读最佳宽度，保持每行字数适中 */
+            width: 100%;
+        }
 
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+        /* ---------- 头部区域 ---------- */
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eaeaea;
+        }
 
-    <header class="site-header">
-      <div class="container">
-        <a class="brand" href="/">Your Name</a>
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #ddd; /* 占位底色，若图片未加载 */
+            margin-bottom: 1.25rem;
+            display: block;
+        }
 
-        <nav id="nav-links" class="nav" aria-label="Primary">
-          <ul class="nav-list">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+            color: #111;
+        }
 
-          <div class="controls">
-            <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
-            <button id="menu-toggle" class="mobile-only" aria-expanded="false" aria-controls="nav-links">☰</button>
-          </div>
-        </nav>
-      </div>
+        .subhead {
+            font-size: 1.1rem;
+            color: #5b5b5b;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .bio {
+            font-size: 1rem;
+            color: #3a3a3a;
+            max-width: 600px;
+        }
+
+        /* ---------- 内容区块（通用） ---------- */
+        section {
+            margin-bottom: 2.8rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #222;
+            letter-spacing: -0.01em;
+        }
+
+        /* ---------- 文章/项目列表 ---------- */
+        .item-list {
+            list-style: none;
+        }
+
+        .item-list li {
+            margin-bottom: 1.2rem;
+        }
+
+        .item-title {
+            font-weight: 500;
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .item-title:hover {
+            border-bottom-color: #888;
+        }
+
+        .item-meta {
+            display: block;
+            font-size: 0.9rem;
+            color: #6f6f6f;
+            margin-top: 0.1rem;
+        }
+
+        .item-desc {
+            font-size: 0.95rem;
+            color: #3f3f3f;
+            margin-top: 0.2rem;
+        }
+
+        /* ---------- 社交链接 ---------- */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .social-links a {
+            color: #2a2a2a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .social-links a:hover {
+            border-bottom-color: #888;
+        }
+
+        /* ---------- 页脚 ---------- */
+        footer {
+            margin-top: 3.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #eaeaea;
+            font-size: 0.9rem;
+            color: #7a7a7a;
+            text-align: center;
+        }
+
+        /* ---------- 响应式微调 ---------- */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ====== 头部：头像 + 名字 + 简介 ====== -->
+    <header>
+        <!-- 头像：把下面的图片链接换成你自己的，也可以把这一行删掉 -->
+        <img class="avatar" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&s=90" alt="头像">
+
+        <h1>你好，我是 [你的名字]</h1>
+        <div class="subhead">产品设计师 · 写作者 · 咖啡爱好者</div>
+        <p class="bio">
+            热衷于创造简洁而有温度的数字体验。目前专注于设计工具与个人知识管理。
+            这里是我在网络上的小小角落，用来记录想法与项目。
+        </p>
     </header>
 
-    <main id="main">
-      <section class="hero">
-        <div class="container">
-          <h1>Hi — I'm Your Name</h1>
-          <p class="lead">Developer, designer, and coffee enthusiast. I build things for the web.</p>
+    <!-- ====== 精选文章 / 博客 ====== -->
+    <section>
+        <h2>📝 最近写的东西</h2>
+        <ul class="item-list">
+            <li>
+                <a href="#" class="item-title">设计系统中的颜色变量实践</a>
+                <span class="item-meta">2026年8月 · 6分钟阅读</span>
+                <div class="item-desc">一套可以跨平台一致运用的颜色管理方案。</div>
+            </li>
+            <li>
+                <a href="#" class="item-title">如何搭建高效的每日写作流程</a>
+                <span class="item-meta">2026年7月 · 4分钟阅读</span>
+                <div class="item-desc">用最简单的工具，养成每天写 500 字的习惯。</div>
+            </li>
+            <li>
+                <a href="#" class="item-title">从 Figma 到代码：设计交接的 3 个关键</a>
+                <span class="item-meta">2026年6月 · 8分钟阅读</span>
+                <div class="item-desc">让设计师和工程师都能舒服合作的实用经验。</div>
+            </li>
+        </ul>
+    </section>
 
-          <p class="cta">
-            <a href="#projects" class="btn">See my work</a>
-            <a href="#contact" class="btn ghost">Contact</a>
-          </p>
+    <!-- ====== 项目作品 ====== -->
+    <section>
+        <h2>🛠️ 做过的一些项目</h2>
+        <ul class="item-list">
+            <li>
+                <a href="#" class="item-title">极简日记 · 开源写作工具</a>
+                <span class="item-meta">2026 · 个人项目</span>
+                <div class="item-desc">一个专注于沉浸式写作的极简网页应用，支持 Markdown 和本地存储。</div>
+            </li>
+            <li>
+                <a href="#" class="item-title">气候数据可视化看板</a>
+                <span class="item-meta">2025 · 团队合作</span>
+                <div class="item-desc">为环保组织设计的实时数据看板，帮助直观理解碳排放趋势。</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ====== 联系 / 社交 ====== -->
+    <section>
+        <h2>🔗 保持联系</h2>
+        <div class="social-links">
+            <a href="mailto:your-email@example.com">📧 邮箱</a>
+            <a href="https://github.com/你的用户名">GitHub</a>
+            <a href="https://twitter.com/你的用户名">Twitter / X</a>
+            <a href="https://linkedin.com/in/你的用户名">LinkedIn</a>
+            <a href="https://mastodon.social/@你的用户名">Mastodon</a>
         </div>
-      </section>
+        <!-- 小提示：如果暂时没有某些社交账号，可以把对应的 <a> 整行删掉 -->
+    </section>
 
-      <section id="about" class="container about">
-        <h2>About</h2>
-        <p>Short bio — replace with a few sentences about who you are and what you build.</p>
-        <p><strong>Skills:</strong> JavaScript · HTML · CSS · React · Node.js</p>
-      </section>
-
-      <section id="projects" class="container projects">
-        <h2>Selected projects</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Project One</h3>
-            <p>One-sentence summary of the project and the value it provides.</p>
-            <p><a href="#" class="link">View repo →</a></p>
-          </article>
-
-          <article class="card">
-            <h3>Project Two</h3>
-            <p>One-sentence summary, tech used or notable point.</p>
-            <p><a href="#" class="link">Live demo →</a></p>
-          </article>
-
-          <article class="card">
-            <h3>Project Three</h3>
-            <p>Short summary and link.</p>
-            <p><a href="#" class="link">Read more →</a></p>
-          </article>
-        </div>
-      </section>
-
-      <section id="blog" class="container blog">
-        <h2>Notes & blog</h2>
-        <p>Add posts as separate Markdown/HTML files or use a static site generator (Jekyll/Hugo) for a full blog.</p>
-      </section>
-
-      <section id="contact" class="container contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-        <p>
-          <strong>Social:</strong>
-          <a href="#" class="social">GitHub</a> ��
-          <a href="#" class="social">Twitter</a> ·
-          <a href="#" class="social">LinkedIn</a>
-        </p>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="year"></span> Your Name</p>
-      </div>
+    <!-- ====== 页脚 ====== -->
+    <footer>
+        <p>© 2026 [你的名字] · 用 ☕️ 和 ⚡️ 驱动 · 订阅 <a href="#" style="color:#555; text-decoration:none; border-bottom:1px solid #ccc;">RSS</a></p>
     </footer>
 
-    <script src="script.js" defer></script>
-  </body>
+</div>
+
+</body>
 </html>

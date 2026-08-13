@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Developer / Designer</title>
+  <meta name="description" content="Personal site of Your Name — developer, designer, tinkerer." />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">Your Name</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+        <button id="menu-toggle" class="mobile-only" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Hi — I'm Your Name</h1>
+        <p class="lead">A short one-line description: developer, designer, and coffee enthusiast. I build things for the web.</p>
+        <p class="cta">
+          <a href="#projects" class="btn">See my work</a>
+          <a href="#contact" class="btn ghost">Get in touch</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>About</h2>
+      <p>
+        Replace this with a short bio. Example: I'm a frontend developer focusing on accessibility and performant UIs.
+      </p>
+      <p>
+        Skills: JavaScript, HTML, CSS, React, Node.js — or list whatever you want.
+      </p>
+    </section>
+
+    <section id="projects" class="container projects">
+      <h2>Selected projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Project One</h3>
+          <p>Short summary of the project. What it does and why it's interesting.</p>
+          <p><a href="#" class="link">View repo →</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Project Two</h3>
+          <p>Short summary of the project. Tech used, notable points.</p>
+          <p><a href="#" class="link">View demo →</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Project Three</h3>
+          <p>Short summary of the project.</p>
+          <p><a href="#" class="link">Read more →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="blog" class="container blog">
+      <h2>Notes & blog</h2>
+      <p>
+        If you want a simple blog, you can add posts as separate HTML/MD pages or use a static site generator (Jekyll/Hugo). Link them here.
+      </p>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+      <p>
+        Social:
+        <a href="#" class="social">GitHub</a> ·
+        <a href="#" class="social">Twitter</a> ·
+        <a href="#" class="social">LinkedIn</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Your Name — Built with a simple template.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

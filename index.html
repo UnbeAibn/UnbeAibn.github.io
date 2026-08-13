@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>你的名字 · 个人主页</title>
-    
-    <!-- 使用系统字体，保证在不同设备上阅读体验最佳 -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name · Personal Site</title>
+
     <style>
-        /* ---------- 全局重置 & 排版 ---------- */
+        /* ---------- Reset & Base ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -15,39 +14,39 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
-            background-color: #fafafa; /* 柔和的浅灰底 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #fafafa;
             color: #1e1e1e;
             line-height: 1.8;
-            padding: 2rem 1.5rem;
+            padding: 3rem 2.5rem;
             display: flex;
             justify-content: center;
         }
 
         .container {
-            max-width: 720px;  /* 阅读最佳宽度，保持每行字数适中 */
+            max-width: 1000px;   /* 比之前的720px宽很多，充分利用电脑屏幕 */
             width: 100%;
         }
 
-        /* ---------- 头部区域 ---------- */
+        /* ---------- Header ---------- */
         header {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
+            margin-bottom: 3.5rem;
+            padding-bottom: 2.5rem;
             border-bottom: 1px solid #eaeaea;
         }
 
         .avatar {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            background: #ddd; /* 占位底色，若图片未加载 */
-            margin-bottom: 1.25rem;
+            background: #ddd;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.6rem;
             font-weight: 600;
             letter-spacing: -0.02em;
             margin-bottom: 0.25rem;
@@ -55,42 +54,43 @@
         }
 
         .subhead {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #5b5b5b;
             font-weight: 400;
             margin-bottom: 0.75rem;
         }
 
         .bio {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #3a3a3a;
-            max-width: 600px;
+            max-width: 800px;
         }
 
-        /* ---------- 内容区块（通用） ---------- */
+        /* ---------- Sections ---------- */
         section {
-            margin-bottom: 2.8rem;
+            margin-bottom: 3.2rem;
         }
 
         h2 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: #222;
             letter-spacing: -0.01em;
         }
 
-        /* ---------- 文章/项目列表 ---------- */
+        /* ---------- Item lists (posts & projects) ---------- */
         .item-list {
             list-style: none;
         }
 
         .item-list li {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
         }
 
         .item-title {
             font-weight: 500;
+            font-size: 1.1rem;
             color: #111;
             text-decoration: none;
             border-bottom: 1px solid transparent;
@@ -109,23 +109,23 @@
         }
 
         .item-desc {
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             color: #3f3f3f;
             margin-top: 0.2rem;
         }
 
-        /* ---------- 社交链接 ---------- */
+        /* ---------- Social links ---------- */
         .social-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.2rem;
+            gap: 1.5rem;
             margin-top: 0.5rem;
         }
 
         .social-links a {
             color: #2a2a2a;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 1rem;
             border-bottom: 1px solid transparent;
             transition: border-color 0.2s;
         }
@@ -134,23 +134,32 @@
             border-bottom-color: #888;
         }
 
-        /* ---------- 页脚 ---------- */
+        /* ---------- Footer ---------- */
         footer {
-            margin-top: 3.5rem;
-            padding-top: 1.8rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
             border-top: 1px solid #eaeaea;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #7a7a7a;
             text-align: center;
         }
 
-        /* ---------- 响应式微调 ---------- */
-        @media (max-width: 480px) {
+        footer a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* ---------- Responsive (still decent on smaller screens) ---------- */
+        @media (max-width: 768px) {
             body {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1.5rem;
             }
             h1 {
-                font-size: 1.7rem;
+                font-size: 2rem;
+            }
+            .container {
+                max-width: 100%;
             }
         }
     </style>
@@ -159,74 +168,75 @@
 
 <div class="container">
 
-    <!-- ====== 头部：头像 + 名字 + 简介 ====== -->
+    <!-- ====== HEADER ====== -->
     <header>
-        <!-- 头像：把下面的图片链接换成你自己的，也可以把这一行删掉 -->
-        <img class="avatar" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&s=90" alt="头像">
+        <!-- Replace the avatar image URL with your own -->
+        <img class="avatar" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&s=100" alt="Avatar" />
 
-        <h1>你好，我是 [你的名字]</h1>
-        <div class="subhead">产品设计师 · 写作者 · 咖啡爱好者</div>
+        <h1>Hi, I'm [Your Name]</h1>
+        <div class="subhead">Product Designer · Writer · Coffee Enthusiast</div>
         <p class="bio">
-            热衷于创造简洁而有温度的数字体验。目前专注于设计工具与个人知识管理。
-            这里是我在网络上的小小角落，用来记录想法与项目。
+            I create simple, human-centered digital experiences. 
+            Currently exploring the intersection of design tools and personal knowledge management. 
+            This is my little corner of the web — a place for ideas and projects.
         </p>
     </header>
 
-    <!-- ====== 精选文章 / 博客 ====== -->
+    <!-- ====== RECENT WRITING ====== -->
     <section>
-        <h2>📝 最近写的东西</h2>
+        <h2>📝 Recent Writing</h2>
         <ul class="item-list">
             <li>
-                <a href="#" class="item-title">设计系统中的颜色变量实践</a>
-                <span class="item-meta">2026年8月 · 6分钟阅读</span>
-                <div class="item-desc">一套可以跨平台一致运用的颜色管理方案。</div>
+                <a href="#" class="item-title">Color Variables in Design Systems</a>
+                <span class="item-meta">August 2026 · 6 min read</span>
+                <div class="item-desc">A practical approach to managing color tokens across platforms.</div>
             </li>
             <li>
-                <a href="#" class="item-title">如何搭建高效的每日写作流程</a>
-                <span class="item-meta">2026年7月 · 4分钟阅读</span>
-                <div class="item-desc">用最简单的工具，养成每天写 500 字的习惯。</div>
+                <a href="#" class="item-title">Building a Daily Writing Habit</a>
+                <span class="item-meta">July 2026 · 4 min read</span>
+                <div class="item-desc">How to write 500 words a day using the simplest tools.</div>
             </li>
             <li>
-                <a href="#" class="item-title">从 Figma 到代码：设计交接的 3 个关键</a>
-                <span class="item-meta">2026年6月 · 8分钟阅读</span>
-                <div class="item-desc">让设计师和工程师都能舒服合作的实用经验。</div>
+                <a href="#" class="item-title">From Figma to Code: 3 Key Handoffs</a>
+                <span class="item-meta">June 2026 · 8 min read</span>
+                <div class="item-desc">Bridging the gap between design and engineering with clarity.</div>
             </li>
         </ul>
     </section>
 
-    <!-- ====== 项目作品 ====== -->
+    <!-- ====== PROJECTS ====== -->
     <section>
-        <h2>🛠️ 做过的一些项目</h2>
+        <h2>🛠️ Selected Projects</h2>
         <ul class="item-list">
             <li>
-                <a href="#" class="item-title">极简日记 · 开源写作工具</a>
-                <span class="item-meta">2026 · 个人项目</span>
-                <div class="item-desc">一个专注于沉浸式写作的极简网页应用，支持 Markdown 和本地存储。</div>
+                <a href="#" class="item-title">Minimal Journal · Open‑source Writing Tool</a>
+                <span class="item-meta">2026 · Personal project</span>
+                <div class="item-desc">A distraction‑free web app for immersive writing, with Markdown and local storage.</div>
             </li>
             <li>
-                <a href="#" class="item-title">气候数据可视化看板</a>
-                <span class="item-meta">2025 · 团队合作</span>
-                <div class="item-desc">为环保组织设计的实时数据看板，帮助直观理解碳排放趋势。</div>
+                <a href="#" class="item-title">Climate Data Dashboard</a>
+                <span class="item-meta">2025 · Team collaboration</span>
+                <div class="item-desc">A real‑time dashboard for an environmental NGO, visualizing carbon emission trends.</div>
             </li>
         </ul>
     </section>
 
-    <!-- ====== 联系 / 社交 ====== -->
+    <!-- ====== SOCIAL / CONTACT ====== -->
     <section>
-        <h2>🔗 保持联系</h2>
+        <h2>🔗 Connect</h2>
         <div class="social-links">
-            <a href="mailto:your-email@example.com">📧 邮箱</a>
-            <a href="https://github.com/你的用户名">GitHub</a>
-            <a href="https://twitter.com/你的用户名">Twitter / X</a>
-            <a href="https://linkedin.com/in/你的用户名">LinkedIn</a>
-            <a href="https://mastodon.social/@你的用户名">Mastodon</a>
+            <a href="mailto:your-email@example.com">📧 Email</a>
+            <a href="https://github.com/yourusername">GitHub</a>
+            <a href="https://twitter.com/yourusername">Twitter / X</a>
+            <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+            <a href="https://mastodon.social/@yourusername">Mastodon</a>
         </div>
-        <!-- 小提示：如果暂时没有某些社交账号，可以把对应的 <a> 整行删掉 -->
+        <!-- Feel free to remove any line above if you don't have that account -->
     </section>
 
-    <!-- ====== 页脚 ====== -->
+    <!-- ====== FOOTER ====== -->
     <footer>
-        <p>© 2026 [你的名字] · 用 ☕️ 和 ⚡️ 驱动 · 订阅 <a href="#" style="color:#555; text-decoration:none; border-bottom:1px solid #ccc;">RSS</a></p>
+        <p>© 2026 [Your Name] · Driven by ☕️ and ⚡️ · Subscribe via <a href="#">RSS</a></p>
     </footer>
 
 </div>
